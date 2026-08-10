@@ -1,32 +1,28 @@
-# Risk-Based Vulnerability Remediation & Ownership — A Practitioner Approach
+# Risk-Based Vulnerability Remediation & Ownership
 
-A practitioner approach for turning a stream of security findings into timely, accountable remediation — by connecting each vulnerability to the affected application, its operational importance, its real exposure and risk, and the team accountable for fixing it.
+A practitioner approach for turning a stream of security findings into timely, accountable remediation — by connecting each vulnerability to the affected application, its operational importance, its true exposure and risk, and the team accountable for fixing it.
 
-This is an adaptable **method**, not a product or a tool. Every organization runs different technologies, scanners, ticketing systems, and risk tolerances, so nothing here prescribes a specific platform. What it offers is a repeatable decision structure that a security or development team can pick up and adapt to its own environment.
+This is an adaptable approach, not a product or a tool. Every organization runs different technologies, scanners, ticketing systems, and risk tolerances, so nothing here prescribes a specific platform. What it offers is a repeatable decision structure that a security or development team can pick up and adapt to its own environment.
 
 > Shared as general, open practitioner guidance for the community to use and adapt. It reflects the author's own professional views and is not associated with, or endorsed by, any employer.
 
 ## The problem this addresses
 
-Modern organizations rarely struggle to *find* vulnerabilities — scanners produce more findings than any team can act on at once. The harder, more persistent problem is deciding **which findings actually matter**, getting each one to **the team responsible for fixing it**, and **tracking it to completion**. When that connective work is missing, findings pile up unassigned, get routed to the wrong team, or are prioritized purely by a severity score that doesn't reflect real risk.
+Organizations rarely struggle to find vulnerabilities — scanners produce more findings than any team can act on at once. The harder, more persistent problem is deciding **which findings actually matter**, getting each one to **the team responsible for fixing it**, and **tracking it to completion**. When that connective work is missing, findings pile up unassigned, get routed to the wrong team, or are prioritized purely by a severity score that doesn't reflect real risk.
 
 This approach is a practical way to close that gap in day-to-day work.
 
-### Useful references
+## Core Principles
 
-If you want to go deeper on the ideas behind risk-based prioritization, these public resources are worth knowing and are referenced throughout the docs:
+**Exploitability over severity**. A CVSS score is an input, not a verdict. What matters is whether the weakness can actually be exploited in your environment — is it internet-facing, is there a public exploit, and is the vulnerable component genuinely in use and reachable? Findings that can't be reached are de-escalated, so effort goes where the real risk is.
 
-- **CISA Known Exploited Vulnerabilities (KEV) Catalog** — a running list of vulnerabilities known to be exploited in the wild; a strong signal for prioritization. (https://www.cisa.gov/known-exploited-vulnerabilities-catalog)
-- **NIST Cybersecurity Framework 2.0** — asset inventory (ID.AM), risk assessment (ID.RA), and roles/accountability (GV.RR).
-- **NIST Secure Software Development Framework (SP 800-218)** — building security into the development lifecycle.
+**Every finding has an owner**. Remediation stalls when no one knows who's responsible. Each finding is connected to the specific team accountable for fixing it, with a defined path when ownership is unclear — because a finding no one owns doesn't get fixed.
 
-(These are background references, not requirements — the approach works with whatever standards and tools your organization already follows.)
+**Context decides, automation carries**. The value is in the decision structure and risk judgement staying with people; the tools are interchangeable. Automation handles the repetitive parts: matching findings to owners, routing, and tracking.
 
-## The core idea
+In practice, that means answering five questions for every significant finding:
 
-For every significant finding, answer five questions and act on the answers:
-
-1. **What is it, and is it real?** — validate the finding; rule out false positives.
+1. **What is it, is it real?** — understand and validate the finding; rule out false positives if possible.
 2. **What does it affect?** — connect the finding to the specific application, service, or component.
 3. **How much does that matter?** — weigh the affected asset's operational importance, its exposure, evidence of active exploitation, and data sensitivity.
 4. **Who owns the fix?** — identify the accountable team or individual, with a defined path when ownership is unclear.
@@ -34,10 +30,7 @@ For every significant finding, answer five questions and act on the answers:
 
 The two questions organizations most often get wrong are **#3 (how to prioritize)** and **#4 (who owns it)** — so those two have their own detailed guides in `docs/`.
 
-## The approach spans prevention and operations
-
-- **Before release — pre-deployment review.** Catch avoidable weaknesses while software is being designed and prepared for release, rather than after it is exposed. See `docs/04-pre-deployment-review-checklist.md`.
-- **In operation — runtime and ongoing analysis.** Identify vulnerabilities in running applications and their components, prioritize them by real risk, and route them to owners. See `docs/01-prioritization-rubric.md` and `docs/02-ownership-mapping.md`.
+The approach can be applied at two points in the software lifecycle: before release, reviewing software for weaknesses (see docs/04), and in operation, finding and remediating vulnerabilities in running systems (see docs/01 and /02).
 
 ## Repository contents
 
@@ -58,13 +51,14 @@ The two questions organizations most often get wrong are **#3 (how to prioritize
 4. Wire the two into your existing **remediation workflow** (`docs/03`) — whatever ticketing and scanning tools you already use.
 5. Fold **pre-deployment review** (`docs/04`) into your release process to reduce inflow at the source.
 
-## Design principles
+### Useful references
 
-- **Decisions over tools.** The value is in the decision structure; the tools are interchangeable.
-- **Context over raw severity.** A CVSS score is an input, not a verdict.
-- **Accountability is explicit.** Every finding has a named owner and a path to one when it doesn't.
-- **Automation assists, humans decide.** Automate the repetitive routing and tracking; keep risk judgment with people.
-- **Adaptable by design.** Expect to tailor thresholds, factors, and workflows to each environment.
+If you want to go deeper on the ideas behind risk-based prioritization, these public resources are worth knowing and being referenced:
+
+- **CISA Known Exploited Vulnerabilities (KEV) Catalog** — a running list of vulnerabilities known to be exploited in the wild; a strong signal for prioritization. (https://www.cisa.gov/known-exploited-vulnerabilities-catalog)
+- **NIST Cybersecurity Framework 2.0** — asset inventory (ID.AM), risk assessment (ID.RA), and roles/accountability (GV.RR).
+
+(These are background references, not requirements — the approach works with whatever standards and tools your organization already follows.)
 
 ## Contributing
 
@@ -76,4 +70,4 @@ Released under the MIT License — see `LICENSE`. Use, adapt, and redistribute f
 
 ## Author
 
-Chingunjav (CJ) Gankhuu — information security practitioner working in application security and enterprise vulnerability management. This guidance is shared as an individual professional contribution to the field.
+Chingunjav (CJ) Gankhuu — information security engineer working in application security and vulnerability management. This guidance is shared as an individual professional contribution to the field.
