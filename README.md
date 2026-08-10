@@ -4,8 +4,6 @@ A practitioner approach for turning a stream of security findings into timely, a
 
 This is an adaptable approach, not a product or a tool. Every organization runs different technologies, scanners, ticketing systems, and risk tolerances, so nothing here prescribes a specific platform. What it offers is a repeatable decision structure that a security or development team can pick up and adapt to its own environment.
 
-> Shared as general, open practitioner guidance for the community to use and adapt. It reflects the author's own professional views and is not associated with, or endorsed by, any employer.
-
 ## The problem this addresses
 
 Organizations rarely struggle to find vulnerabilities — scanners produce more findings than any team can act on at once. The harder, more persistent problem is deciding **which findings actually matter**, getting each one to **the team responsible for fixing it**, and **tracking it to completion**. When that connective work is missing, findings pile up unassigned, get routed to the wrong team, or are prioritized purely by a severity score that doesn't reflect real risk.
@@ -70,4 +68,4 @@ Released under the MIT License — see `LICENSE`. Use, adapt, and redistribute f
 
 ## Author
 
-Chingunjav (CJ) Gankhuu — information security engineer working in application security and vulnerability management. This guidance is shared as an individual professional contribution to the field.
+Chingunjav (CJ) Gankhuu — information security engineer working in application security and vulnerability management. This guidance is shared as an individual professional contribution to the field — not associated with or endorsed by any employer.
