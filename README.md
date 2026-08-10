@@ -26,35 +26,25 @@ In practice, that means answering five questions for every significant finding:
 4. **Who owns the fix?** — identify the accountable team or individual, with a defined path when ownership is unclear.
 5. **Did it actually get fixed?** — assign, track, and confirm remediation or formal risk acceptance.
 
-The two questions organizations most often get wrong are **#3 (how to prioritize)** and **#4 (who owns it)** — so those two have their own detailed guides in `docs/`.
-
 The approach can be applied at two points in the software lifecycle: before release, reviewing software for weaknesses (see docs/04), and in operation, finding and remediating vulnerabilities in running systems (see docs/01 and /02).
 
 ## Repository contents
 
 | File | What it is |
 |------|------------|
-| `docs/01-prioritization-rubric.md` | Risk-based prioritization decision guide *(adapt the thresholds to your environment)* |
-| `docs/02-ownership-mapping.md` | Method for connecting findings to accountable owners *(adapt to your organization's structure)* |
-| `docs/03-remediation-workflow.md` | Assigning, tracking, and closing findings |
-| `docs/04-pre-deployment-review-checklist.md` | A generic pre-release application-security review checklist |
-| `templates/application-inventory-template.md` | Minimal application-to-owner inventory |
-| `templates/vulnerability-triage-record-template.md` | A record for a single triaged finding |
-
-## How to use it
-
-1. Stand up (or improve) a basic **application-to-owner inventory** — you cannot route what you cannot attribute. Use the template in `templates/`.
-2. Adopt or adapt the **prioritization rubric** (`docs/01`) to your own risk factors and thresholds.
-3. Adopt or adapt the **ownership-mapping method** (`docs/02`) to how your organization is structured.
-4. Wire the two into your existing **remediation workflow** (`docs/03`) — whatever ticketing and scanning tools you already use.
-5. Fold **pre-deployment review** (`docs/04`) into your release process to reduce inflow at the source.
+| [`01-prioritization-rubric.md`](01-prioritization-rubric.md) | Risk-based prioritization decision guide (adapt to your own risk factors and thresholds) |
+| [`02-ownership-mapping.md`](02-ownership-mapping.md) | Method for connecting findings to accountable owners (adapt to your org structure) |
+| [`03-remediation-workflow.md`](03-remediation-workflow.md) | Assigning, tracking, and closing findings (wire to your already-use tool) |
+| [`04-pre-deployment-review-checklist.md`](04-pre-deployment-review-checklist.md) | A pre-release application-security review checklist (fold into your pre-deploy) |
+| [`application-inventory-template.md`](application-inventory-template.md) | Minimal application-to-owner inventory |
+| [`vulnerability-triage-record-template.md`](vulnerability-triage-record-template.md) | A record for a single triaged finding |
 
 ### Useful references
 
 If you want to go deeper on the ideas behind risk-based prioritization, these public resources are worth knowing and being referenced:
 
 - **CISA Known Exploited Vulnerabilities (KEV) Catalog** — a running list of vulnerabilities known to be exploited in the wild; a strong signal for prioritization. (https://www.cisa.gov/known-exploited-vulnerabilities-catalog)
-- **NIST Cybersecurity Framework 2.0** — asset inventory (ID.AM), risk assessment (ID.RA), and roles/accountability (GV.RR).
+- **NIST Cybersecurity Framework 2.0** — asset inventory (ID.AM), risk assessment (ID.RA), and roles/accountability (GV.RR). (https://nvlpubs.nist.gov/nistpubs/CSWP/NIST.CSWP.29.pdf)
 
 (These are background references, not requirements — the approach works with whatever standards and tools your organization already follows.)
 
@@ -64,7 +54,7 @@ Issues and pull requests are welcome. If you adapt this approach in your organiz
 
 ## License
 
-Released under the MIT License — see `LICENSE`. Use, adapt, and redistribute freely.
+Released under the MIT License — see [`LICENSE`](LICENSE). Use, adapt, and redistribute freely.
 
 ## Author
 
