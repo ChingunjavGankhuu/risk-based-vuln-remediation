@@ -34,8 +34,8 @@ The approach can be applied at two points in the software lifecycle: before rele
 
 | File | What it is |
 |------|------------|
-| `docs/01-prioritization-rubric.md` | Risk-based prioritization decision guide *(core — customize with your own logic)* |
-| `docs/02-ownership-mapping.md` | Method for connecting findings to accountable owners *(core — customize)* |
+| `docs/01-prioritization-rubric.md` | Risk-based prioritization decision guide *(adapt the thresholds to your environment)* |
+| `docs/02-ownership-mapping.md` | Method for connecting findings to accountable owners *(adapt to your organization's structure)* |
 | `docs/03-remediation-workflow.md` | Assigning, tracking, and closing findings |
 | `docs/04-pre-deployment-review-checklist.md` | A generic pre-release application-security review checklist |
 | `templates/application-inventory-template.md` | Minimal application-to-owner inventory |
