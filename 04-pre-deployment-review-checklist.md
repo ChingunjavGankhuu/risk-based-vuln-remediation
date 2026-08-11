@@ -1,6 +1,6 @@
-# Pre-Deployment Application-Security Review Checklist
+# Pre-Deployment Application Security Review Checklist
 
-A generic checklist for reviewing an application or significant change **before** it reaches production, so avoidable weaknesses are caught while they are cheapest to fix. Adapt the items to your environment; treat this as a starting point, not an exhaustive standard.
+A generic checklist for reviewing an application or significant change before it reaches production, so avoidable weaknesses are caught while they are cheapest to fix. Adapt the items to your environment and treat this as a just starting point.
 
 This supports the prevention side of the approach and aligns with the NIST Secure Software Development Framework (SP 800-218), which emphasizes integrating security across the lifecycle and addressing root causes so weaknesses do not recur.
 
@@ -35,7 +35,6 @@ Gather enough context to make the review meaningful:
 - [ ] Input handling defends against injection classes (e.g., SQL injection, cross-site scripting) — well-understood, preventable, and still common per CISA/FBI guidance.
 - [ ] Output encoding and content handling are appropriate.
 - [ ] Dependencies/components are current and free of known-vulnerable versions.
-- [ ] Error handling does not leak sensitive detail.
 
 ## Exposure & configuration
 
@@ -50,11 +49,11 @@ Gather enough context to make the review meaningful:
 
 ## After the review — outcomes
 
-- [ ] Findings recorded, each with a priority tier and owner (feed into `docs/01` and `docs/02`).
-- [ ] Follow-up items tracked to completion (`docs/03`).
+- [ ] Findings recorded, each with a priority tier and owner (feed into `01` and `02`).
+- [ ] Follow-up items tracked to completion (`03`).
 - [ ] Decisions and any accepted risks documented with rationale and a re-review date.
 
 ## Notes
 
-- Keep the review a **conversation**, not just a form — the highest-value output is often the questions raised and the shared understanding created between security and the delivery team.
+- Keep the review a **conversation**, not just a form because the valuable output is often the questions raised and the shared understanding created between security and the delivery team.
 - Right-size the depth to the application's importance and exposure; a high-importance internet-facing service warrants more scrutiny than a low-risk internal tool.
