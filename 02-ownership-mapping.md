@@ -27,22 +27,28 @@ Define a default holder so nothing sits ownerless while you track down the real 
 Ownership drifts as teams reorganize and applications are retired or handed off. Ways I keep it usable:
 
 - Reach out to the previous owner when a mapping is stale.
-- Refer to a maintained team-leadership or team-directory reference when the inventory is incomplete.
-- Where a CMDB exists, keep it as the source of truth and refresh it on a defined cadence.
+- Refer to a maintained individual team-leadership or team-directory documentations when the inventory is incomplete.
+- Where a CMDB exists, keep it as the source of truth and refresh (document) it on a defined cadence.
 
 Be honest that this is often a known pain point — inventories are rarely perfect, and staleness is a constant.
 
-## Automating the tedious part
+## Automating the process with AI
 
 Mapping a finding to its owner by hand is repetitive and involves juggling several sources at once — the finding's details, the code repositories, team membership, and a team directory. It's exactly the kind of many-tabs, error-prone lookup worth automating.
 
-The general approach: connect your ownership sources to an automated agent, and have it resolve a finding's details to the affected component's owning team and point of contact. Keep the *judgment* — validation, prioritization, resolving disputes — with people; let automation handle the mechanical matching and routing so findings reach owners faster and more consistently.
+The main approach I developed to solve the ownership problem:
 
-*(The specific integrations, tools, and automation methods will depend on your environment. Describe them at the level of general approach; don't publish the internal details of any one organization's stack.)*
+- create an agentic workspace that maps ownership to each vulnerability for you
+- connect your ownership sources (such as a CMDB, application inventory, and team directory) to an AI agent approved by your organization
+- connect your scanning tools to the agent so it has the vulnerability details
+- have the agent resolve each finding to the affected component's owning team and point of contact
+- keep the judgment (validation, prioritization, resolving disputes) with people, and let automation handle the mechanical matching and routing
+
+*(The specific integrations, tools, and automation methods will depend on your environment. Adopt it as a general approach.)*
 
 ## Common failure modes to design against
 
-- **Orphaned findings** — no mapping exists. Ensure a default owner and an investigation path.
-- **Stale ownership** — the mapped team no longer owns the asset. Schedule refreshes.
-- **Shared components** — a vulnerable shared library affects many applications. Decide whether you route to the component owner, the consuming teams, or both.
-- **Ambiguous boundaries** — two teams each think the other owns it. Define a tie-breaker.
+- **Orphaned findings** — nothing maps to vulnerability.
+- **Stale ownership** — the mapped team no longer owns the asset. 
+- **Shared components** — a vulnerable shared library affects many application (who owns the fix).
+- **Ambiguous boundaries** — two teams each think the other owns it.
