@@ -34,7 +34,7 @@ Be honest that this is often a known pain point — inventories are rarely perfe
 
 ## Automating the process with AI
 
-Mapping a finding to its owner by hand is repetitive and involves juggling several sources at once — the finding's details, the code repositories, team membership, and a team directory. It's exactly the kind of many-tabs, error-prone lookup worth automating.
+Mapping a finding to its owner by hand is repetitive and involves juggling several sources at once — the finding's details, the code repositories, team membership or directory. It's exactly the kind of many-tabs, error-prone lookup worth automating.
 
 The main approach I developed to solve the ownership problem:
 
@@ -44,7 +44,9 @@ The main approach I developed to solve the ownership problem:
 - have the agent resolve each finding to the affected component's owning team and point of contact
 - keep the judgment (validation, prioritization, resolving disputes) with people, and let automation handle the mechanical matching and routing
 
-*(The specific integrations, tools, and automation methods will depend on your environment. Adopt it as a general approach.)*
+<img src="ownership-automation.svg" width="100%" alt="Ownership-mapping automation: reference architecture">
+
+*Reference architecture for this approach. The specific sources, confidence tiers, tools, and integrations will depend on your environment, so adapt it rather than copying it exactly.*
 
 ## Common failure modes to design against
 
