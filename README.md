@@ -12,9 +12,9 @@ This approach is a practical way to close that gap in day-to-day work.
 
 ## Core Principles
 
-**Exploitability over severity**. A CVSS score is an input, not a verdict. What matters is whether the weakness can actually be exploited in your environment — is it internet-facing, is there a public exploit, and is the vulnerable component genuinely in use and reachable? Findings that can't be reached are de-escalated, so effort goes where the real risk is.
+**Risk is likelihood and impact**. A CVSS score is an input, not a verdict. Likelihood asks whether the weakness can actually be exploited in your environment: is it reachable from the internet or the internal network, is there a public exploit, and is the vulnerable component genuinely in use? Impact asks what's at stake: how important the system is and whether it holds sensitive data. An easily exploited but low-impact finding can rank below a harder-to-reach one that exposes sensitive data, and internal exposure still counts, so effort goes where the real risk is.
 
-**Every finding has an owner**. Remediation stalls when no one knows who's responsible. Each finding is connected to the specific team accountable for fixing it, with a defined path when ownership is unclear — because a finding no one owns doesn't get fixed.
+**Every finding has an owner for the fix**. Remediation stalls when no one knows who's responsible. Each finding is connected to the team best placed to fix it, with a defined path when ownership is unclear. Ownership means responsibility for the fix, not blame for the flaw: findings get fixed faster where teams can raise problems without fear (see [blameless postmortem culture](https://sre.google/sre-book/postmortem-culture/)).
 
 **Context decides, automation carries**. The value is in the decision structure and risk judgement staying with people; the tools are interchangeable. Automation handles the repetitive parts: matching findings to owners, routing, and tracking.
 
@@ -59,4 +59,4 @@ Released under the MIT License — see [`LICENSE`](LICENSE). Use, adapt, and red
 
 ## Author
 
-Chingunjav (CJ) Gankhuu — information security engineer working in application security and vulnerability management. This guidance is shared as an individual professional contribution to the field — not associated with or endorsed by any employer.
+Chingunjav (CJ) Gankhuu — Information Security Engineer working in application security and vulnerability management. This guidance is shared as an individual professional contribution to the field — not associated with or endorsed by any employer.
