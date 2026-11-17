@@ -26,21 +26,23 @@ Define a default holder so nothing sits ownerless while you track down the real 
 
 Ownership drifts as teams reorganize and applications are retired or handed off. Ways I keep it usable:
 
+- Map each application to a team or role alias (for example, a team distribution list), not an individual's name, so ownership survives staff changes.
 - Reach out to the previous owner when a mapping is stale.
-- Refer to a maintained individual team-leadership or team-directory documentations when the inventory is incomplete.
+- Refer to a maintained team directory or team-leadership records when the inventory is incomplete.
 - Where a CMDB exists, keep it as the source of truth and refresh (document) it on a defined cadence.
 
 Be honest that this is often a known pain point — inventories are rarely perfect, and staleness is a constant.
 
 ## Automating the process with AI
 
-Mapping a finding to its owner by hand is repetitive and involves juggling several sources at once — the finding's details, the code repositories, team membership or directory. It's exactly the kind of many-tabs, error-prone lookup worth automating.
+Mapping a finding to its owner by hand is repetitive and involves juggling several sources at once — the finding's details, the code repositories, team directory. It's exactly the kind of many-tabs, error-prone lookup worth automating.
 
 The main approach I developed to solve the ownership problem:
 
 - create an agentic workspace that maps ownership to each vulnerability for you
 - connect your ownership sources (such as a CMDB, application inventory, and team directory) to an AI agent approved by your organization
 - connect your scanning tools to the agent so it has the vulnerability details
+- gather and normalize the inputs, reconciling how each source names the same application, repository, or team
 - have the agent resolve each finding to the affected component's owning team and point of contact
 - keep the judgment (validation, prioritization, resolving disputes) with people, and let automation handle the mechanical matching and routing
 
@@ -48,9 +50,22 @@ The main approach I developed to solve the ownership problem:
 
 *Reference architecture for this approach. The specific sources, confidence tiers, tools, and integrations will depend on your environment, so adapt it rather than copying it exactly.*
 
+## Resolve by confidence, not by guess
+
+Not every match is equally reliable. Resolve each finding against your sources in order, and let the first confident match win:
+
+| Tier | Source | Confidence | Action |
+|---|---|---|---|
+| A | Authoritative, hand-confirmed ownership records | High | Route automatically |
+| B | Curated inventory and team maps | Medium | Route automatically |
+| C | AI-assisted inference | Lower | Flag for human review |
+| Unknown | No match | None | Route to the default holder for investigation |
+
+Automation should never guess an owner. A wrong route wastes a team's time and leaves the real owner unaware.
+
 ## Common failure modes to design against
 
-- **Orphaned findings** — nothing maps to vulnerability.
+- **Orphaned findings** — the finding maps to no owner.
 - **Stale ownership** — the mapped team no longer owns the asset. 
-- **Shared components** — a vulnerable shared library affects many application (who owns the fix).
+- **Shared components** — affects many applications. Who owns the fix?
 - **Ambiguous boundaries** — two teams each think the other owns it.
