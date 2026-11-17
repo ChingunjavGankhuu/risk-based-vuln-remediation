@@ -1,6 +1,6 @@
 # Connecting Findings to Accountable Owners
 
-A finding that no one owns doesn't get fixed. In my experience, the single biggest reason remediation stalls isn't technical difficulty — it's that the finding never reaches the person accountable for it, or reaches the wrong one. Reliable ownership information is the foundation that makes prioritization and remediation actually work.
+A finding that no one owns doesn't get fixed. In my experience, the single biggest reason remediation stalls isn't technical difficulty — it's that the finding never reaches the team accountable for it, or reaches the wrong one. Reliable ownership information is the foundation that makes prioritization and remediation actually work.
 
 ## How to connect a finding to its owner
 
@@ -32,6 +32,16 @@ Ownership drifts as teams reorganize and applications are retired or handed off.
 - Where a CMDB exists, keep it as the source of truth and refresh (document) it on a defined cadence.
 
 Be honest that this is often a known pain point — inventories are rarely perfect, and staleness is a constant.
+
+## Ownership without blame
+
+Routing a finding to a team means asking the team best placed to fix it, not assigning fault for the flaw. This follows the blameless culture described in Google's SRE book (https://sre.google/sre-book/postmortem-culture/): when people fear blame, problems get hidden instead of fixed.
+
+- **Frame findings as work, not fault.** Describe what needs fixing and why it matters, not who introduced it.
+- **Fix the system when findings repeat.** If the same kind of weakness keeps appearing, or remediation keeps stalling, look for the process gap (unclear ownership records, missing tooling, a gap in pre-release review) rather than treating the team as the problem.
+- **Use team metrics to direct help, not to rank.** Backlog and time-to-fix by team show where support is needed; they shouldn't become a scoreboard.
+- **Recognize good behavior.** Credit teams that report issues early or close findings quickly.
+- **Learn from significant misses.** When a serious vulnerability reaches production, run a short blameless review of how it got there, and feed the lessons into the pre-deployment checklist (04).
 
 ## Automating the process with AI
 
