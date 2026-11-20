@@ -36,6 +36,7 @@ The approach can be applied at two points in the software lifecycle: before rele
 | [`02-ownership-mapping.md`](02-ownership-mapping.md) | Method for connecting findings to accountable owners (adapt to your org structure) |
 | [`03-remediation-workflow.md`](03-remediation-workflow.md) | Assigning, tracking, and closing findings (wire to your already-use tool) |
 | [`04-pre-deployment-review-checklist.md`](04-pre-deployment-review-checklist.md) | A pre-release application-security review checklist (fold into your pre-deploy) |
+| [`05-agentic-reference-design.md`](05-agentic-reference-design.md) | How an AI agent can carry out this approach safely, with people keeping the risk decisions.) |
 | [`ownership-automation.svg`](ownership-automation.svg) | Architecture diagram reference |
 | [`application-inventory-template.md`](application-inventory-template.md) | Minimal application-to-owner inventory |
 | [`vulnerability-triage-record-template.md`](vulnerability-triage-record-template.md) | A record for a single triaged finding |
